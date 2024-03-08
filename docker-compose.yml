@@ -1,5 +1,6 @@
 services:
   frontend:
+    container_name: web-frontend
     build: ./frontend
     ports:
       - 7860:7860
@@ -8,6 +9,7 @@ services:
     networks:
       - my_network
   backend:
+    container_name: web-backend
     build: ./backend
     ports:
       - 8000:8000
@@ -16,11 +18,12 @@ services:
     networks:
       - my_network
   mongodb:
+    container_name: web-database
     image: mongo:latest
     ports:
       - 27017:27017
     volumes:
-      - /data/db:/data/db
+      - ./backend/data/db:/data/db
     networks:
       - my_network
 
