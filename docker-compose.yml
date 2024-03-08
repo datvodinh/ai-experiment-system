@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 7860:7860
+    volumes:
+      - .:/code
+    networks:
+      - my_network
+  backend:
+    build: ./backend
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/code
+    networks:
+      - my_network
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - /data/db:/data/db
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
