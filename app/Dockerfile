@@ -8,4 +8,4 @@ RUN pip install .
 
 EXPOSE 7860
 
-CMD ["python","frontend/frontend/main.py"]
+CMD ["python","app/app/main.py"]

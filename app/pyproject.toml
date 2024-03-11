@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "backend"
+name = "app"
 version = "0.1.0"
 description = ""
 authors = ["Võ Đình Đạt <vodinhdat03@gmail.com>"]
@@ -7,11 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = "^0.110.0"
-uvicorn = "^0.27.1"
-diffusers = "^0.26.3"
-torch = "^2.2.1"
-pymongo = "^4.6.2"
+gradio = "^4.21.0"
+numpy = "^1.26.4"
+pandas = "^2.2.1"
+polars = "^0.20.15"
 
 
 [build-system]
