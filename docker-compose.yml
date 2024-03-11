@@ -1,7 +1,7 @@
 services:
   frontend:
-    container_name: web-frontend
-    build: ./frontend
+    container_name: web-app
+    build: ./app
     ports:
       - 7860:7860
     volumes:
@@ -9,8 +9,8 @@ services:
     networks:
       - my_network
   backend:
-    container_name: web-backend
-    build: ./backend
+    container_name: web-server
+    build: ./server
     ports:
       - 8000:8000
     volumes:
@@ -23,7 +23,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./backend/data/db:/data/db
+      - ./server/data/db:/data/db
     networks:
       - my_network
 
