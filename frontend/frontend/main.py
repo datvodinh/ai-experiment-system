@@ -1,5 +1,6 @@
 import gradio as gr
 import requests
+import trainer as tr
 import pandas as pd
 from itertools import product
 headers = ["lr", "batch_size", "max_epochs", "dropout"]
@@ -63,18 +64,18 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="green")) as demo:
                 )
                 batch_size = gr.CheckboxGroup(
                     label="Batch Size",
-                    choices=[1, 2, 4, 8, 16, 32, 64],
+                    choices=[32, 64, 128, 256],
                     value=32, interactive=True
                 )
             with gr.Column(variant='panel'):
                 max_epochs = gr.CheckboxGroup(
                     label="Max Epochs",
-                    choices=[10, 20, 30, 40, 50],
+                    choices=[10, 20, 30, 40],
                     value=20, interactive=True
                 )
                 dropout = gr.CheckboxGroup(
                     label="Dropout",
-                    choices=[0, 0.1, 0.2, 0.3, 0.4, 0.5],
+                    choices=[0, 0.1, 0.2, 0.3],
                     value=0., interactive=True
                 )
 
@@ -96,7 +97,7 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="green")) as demo:
             job_finish = gr.DataFrame(label="Jobs Finished", headers=["status", "accuracy"] + headers)
 
     train_btn.click(get_grid_seach, inputs=[lr, batch_size, max_epochs, dropout], outputs=job_queuing)
-    reset_btn.click(lambda: [0.0001, 32, 20, 0], outputs=[lr, batch_size, max_epochs, dropout])
+    reset_btn.click(lambda: [0.001, 256, 10, 0], outputs=[lr, batch_size, max_epochs, dropout])
     # test_btn.click(print_test, inputs=[lr])
 
 demo.launch(share=False, server_name="0.0.0.0")

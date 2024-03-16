@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "trainer"
+name = "backend"
 version = "0.1.0"
 description = ""
 authors = ["Võ Đình Đạt <vodinhdat03@gmail.com>"]
@@ -7,7 +7,13 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+fastapi = "^0.110.0"
+uvicorn = "^0.28.0"
+pymongo = "^4.6.2"
+pydantic = "^2.6.4"
 torch = "^2.2.1"
+lightning = "^2.2.1"
+torchvision = "^0.17.1"
 
 
 [build-system]

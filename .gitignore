@@ -162,3 +162,5 @@ cython_debug/
 *.ipynb
 MNIST
 data
+checkpoints
+test.py
